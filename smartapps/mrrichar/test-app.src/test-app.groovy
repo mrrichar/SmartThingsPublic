@@ -52,4 +52,10 @@ def initialize() {
     subscribe(themotion, "motion.active",motionDetectedHandler)
 }
 
+def motionDetectedHandler(e){
+    log.debug "motionDetectedHandler called: $e"
+
+    theswitch.on();
+}
+
 // TODO: implement event handlers
