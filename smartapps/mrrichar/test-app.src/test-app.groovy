@@ -49,13 +49,20 @@ def updated() {
 
 def initialize() {
 	// TODO: subscribe to attributes, devices, locations, etc.
-    subscribe(themotion, "motion.active",motionDetectedHandler)
+    subscribe(themotion, "motion.active",motionDetectedHandler)    
+    subscribe(themotion, "motion.inactive",noMotionHandler)
 }
 
 def motionDetectedHandler(e){
     log.debug "motionDetectedHandler called: $e"
 
     theswitch.on();
+}
+
+def noMotionHandler(e) {
+	log.debug "noMotionHandler called: $e"
+
+    theswitch.off();
 }
 
 // TODO: implement event handlers
